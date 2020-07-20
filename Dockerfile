@@ -1,5 +1,6 @@
 FROM rabbitmq
-RUN yum update && yum install -y curl
+RUN apt-get update && apt-get install -y curl && \
+    apt-get clean
 ENV RABBITMQ_USE_LONGNAME=true
 ENV RABBITMQ_ERLANG_COOKIE='testingcookie'
 RUN rabbitmq-plugins enable --offline rabbitmq_management
